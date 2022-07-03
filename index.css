@@ -145,10 +145,8 @@ img
     position: absolute;
     width: calc(1.5 * 37.75vmin);
     height: calc(1.5 * 44.25vmin);
-    /*background: url("assets/tiger.jpg");*/
     background-size: cover;
     background-position: center center;
-    opacity: 0;
     z-index: 2;
 }
 .hover
@@ -158,6 +156,22 @@ img
 .glarebound:hover .hover
 {
     opacity: 1;
+}
+.collagecontainer
+{
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    width: calc(1.5 * 37.75vmin);
+    height: calc(1.5 * 44.25vmin);
+}
+.collageitem
+{
+    width: calc(1.5 * 37.75vmin / 2);
+    height: calc(1.5 * 44.25vmin / 2);
+    background-size: cover;
+    background-position: center center;
+    z-index: 3;
 }
 .clockcontainer
 {
