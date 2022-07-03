@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- <img src="assets/FG133.jpg"> -->
+    <div class="face">
+        <div class="screen">
+            <div class="glarebound">
+                <div class="black"></div>
+                <div class="screencontent hover"></div>
+                <div class="clockcontainer">
+                    <div class="clock hover">
+                        <div class="handscontainer hover">
+                            <div class="hand hr hover" id="hr"></div>
+                            <div class="hand mn hover" id="mn"></div>
+                            <div class="hand sc hover" id="sc"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="topglare"></div>
+                <div class="bottomglare"></div>
+                <div class="leftglare"></div>
+                <div class="rightglare"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //handling drag and drop of images
+    let imgsrclist = [];
+    let imgindex = 0;
+    const dropzone = document.querySelector('.glarebound');
+
+    dropzone.addEventListener('dragover', event => {
+        event.preventDefault();
+    });
+
+    dropzone.addEventListener('drop', event => {
+        event.preventDefault();
+        let first
+        if (imgsrclist.length != 0) {
+            first = false
+        } else {
+            first = true
+        }
+        const files = event.dataTransfer.files;
+        for (var file of files) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.addEventListener('loadend', () => {
+                const result = reader.result;
+                imgsrclist.push(result);
+            });
+        }
+
+        // // if screen is black still then put the first image up
+        // if (first) {
+        //     console.log(imgindex, imgsrclist[imgindex])
+        //     const screencontent = document.querySelector('.screencontent');
+        //     screencontent.style.background = `url("${imgsrclist[imgindex]}")`;
+        //     screencontent.style.backgroundSize = `cover`;
+        //     screencontent.style.backgroundPosition =  `center center`;
+        //     console.log(imgsrclist, imgsrclist.length);
+        //     imgindex = (imgindex + 1) % imgsrclist.length;
+        // }
+
+        // in the console.log, it shows imgsrclist correctly populated with dropped files, but imgsrclist.length is showing as 0, so this block of code isnt functional yet
+    });
+
+    // adding event listener to change image when clicked
+    dropzone.addEventListener('click', event => {
+        if (imgsrclist.length != 0) {
+            const screencontent = document.querySelector('.screencontent');
+            screencontent.style.background = `url("${imgsrclist[imgindex]}")`;
+            screencontent.style.backgroundSize = `cover`;
+            screencontent.style.backgroundPosition =  `center center`;
+            imgindex = (imgindex + 1) % imgsrclist.length;
+        }
+    });
+
+    // updating the time on the clock
+    let hr = document.querySelector('#hr');
+    let mn = document.querySelector('#mn');
+    let sc = document.querySelector('#sc');
+
+    setInterval(() => {
+        let day = new Date();
+        let hh = day.getHours() * 30;
+        let mm = day.getMinutes() * 6;
+        let ss = day.getSeconds() * 6;
+
+        hr.style.transform = `translateY(-50%) rotateZ(${hh+(mm/12)}deg)`;
+        mn.style.transform = `translateY(-50%) rotateZ(${mm}deg)`;
+        sc.style.transform = `translateY(-50%) rotateZ(${ss}deg)`;
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+img
+{
+    position: absolute;
+    top: 6.34vmin;
+    left: -100px;
+    opacity: 0.5;
+    height: 85vmin;
+}
+.container
+{
+    width: 100vw;
+    height:  100vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.face
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(1.5 * 47.5vmin);
+    width: calc(1.5 * 41vmin);
+    border-radius: calc(1.5 * 10.5vmin);
+    background: gray;
+    box-shadow: inset 0.75vmin 0.75vmin 0.75vmin rgba(20,20,15,0.75),
+                inset -0.75vmin 0.75vmin 0.75vmin rgba(20,20,15,0.75),
+                inset 0.75vmin -0.75vmin 0.75vmin rgba(20,20,15,0.75),
+                inset -0.75vmin -0.75vmin 0.75vmin rgba(20,20,15,0.75);
+}
+.face::after
+{
+    content: '';
+    position: absolute;
+    top: calc(50vmin - calc(1.5 * 12.9vmin));
+    left: calc(50vw + calc(1.5 * 19.5vmin));
+    width: calc(1.5 * 3vmin);
+    height: calc(1.5 * 9vmin);
+    border-radius: calc(1.5 * 25%);
+    background: repeating-linear-gradient(
+                    0deg,
+                    rgba(10,10,10,0.75),
+                    rgba(10,10,10,0.75) calc(1.5 * 0.2vmin),
+                    rgba(0,0,0,0) calc(1.5 * 0.25vmin),
+                    rgba(0,0,0,0) calc(1.5 * 0.95vmin),
+                    rgba(10,10,10,0.75) calc(1.5 * 1vmin)),
+                linear-gradient(
+                    rgb(60,60,60),
+                    silver 15%,
+                    rgb(60,60,60) 45%,
+                    rgb(60,60,60) 55%,
+                    silver 85%,
+                    rgb(60,60,60) 100%);
+    box-shadow: inset 0.375vmin 0.375vmin 0.675vmin rgba(0,0,0,0.5),
+                inset -0.375vmin 0.375vmin 0.675vmin rgba(0,0,0,0.5),
+                inset 0.375vmin -0.375vmin 0.675vmin rgba(0,0,0,0.5),
+                inset -0.375vmin -0.375vmin 0.675vmin rgba(0,0,0,0.5),
+                -0.75vmin 0 0.525vmin rgba(0,0,0,0.8);
+}
+.screen
+{
+    width: calc(1.5 * 37.75vmin);
+    height: calc(1.5 * 44.25vmin);
+    border-radius: calc(1.5 * 8.5vmin);
+    border: calc(1.5 * 0.2vmin) solid black;
+    box-shadow: 0 0 1.5vmin 1.125vmin rgba(0,0,0,0.75),
+                0 -6vmin 1.5vmin -4.5vmin rgba(255,255,255,1),
+                -6vmin 0 1.5vmin -4.5vmin rgba(255,255,255,1),
+                0 6vmin 1.5vmin -4.5vmin rgba(255,255,255,1),
+                6vmin 0 1.5vmin -4.5vmin rgba(255,255,255,1);
+}
+.glarebound
+{
+    position: absolute;
+    width: calc(1.5 * 37.75vmin);
+    height: calc(1.5 * 44.25vmin);
+    border-radius: calc(1.5 * 8.5vmin);
+    overflow: hidden;
+    transform: translate(0);
+    z-index: 5;
+}
+.glarebound::before {
+    content: '';
+    position: absolute;
+    width: calc(1.5 * 37.75vmin);
+    height: calc(1.5 * 44.25vmin);
+    border-radius: calc(1.5 * 8.5vmin);
+    z-index: 5;
+    box-shadow: inset 4.5vmin 0 3vmin -3vmin rgba(255,255,255,0.35),
+                inset 0 4.5vmin 5vmin -3vmin rgba(255,255,255,0.35),
+                inset -4.5vmin 0 3vmin -3vmin rgba(255,255,255,0.35),
+                inset 0 -4.5vmin 1vmin -3vmin rgba(255,255,255,0.35);
+}
+.topglare
+{
+    position: absolute;
+    width: 100%;
+    height: 4.5vmin;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.3) 30%, rgba(255,255,255,0.05) 70%, rgba(0,0,0,0));
+    z-index: 4;
+}
+.bottomglare
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1.5vmin;
+    background: linear-gradient(rgba(0,0,0,0), rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0.8));
+    z-index: 4;
+}
+.leftglare
+{
+    position: absolute;
+    width: 3vmin;
+    height: 100%;
+    background: linear-gradient(to left, rgba(0,0,0,0), rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0.8));
+    z-index: 4;
+}
+.rightglare
+{
+    position: absolute;
+    right: 0;
+    width: 3vmin;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0), rgba(255,255,255,0.05) 30%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0.8));
+    z-index: 4;
+}
+.black
+{
+    position: absolute;
+    width: calc(1.5 * 37.75vmin);
+    height: calc(1.5 * 44.25vmin);
+    background: rgba(0,0,0,1);
+    background-size: 100%;
+    z-index: 1;
+}
+.screencontent
+{
+    position: absolute;
+    width: calc(1.5 * 37.75vmin);
+    height: calc(1.5 * 44.25vmin);
+    /*background: url("assets/tiger.jpg");*/
+    background-size: cover;
+    background-position: center center;
+    opacity: 0;
+    z-index: 2;
+}
+.hover
+{
+    opacity: 0;
+}
+.glarebound:hover .hover
+{
+    opacity: 1;
+}
+.clockcontainer
+{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(1.5 * 37.75vmin);
+    height: calc(1.5 * 44.25vmin);
+}
+.clock
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(1.5 * 32.75vmin);
+    height: calc(1.5 * 32.75vmin);
+    border-radius: 50%;
+}
+.clock::before
+{
+    content: '';
+    position: absolute;
+    width: 1vmin;
+    height: 1vmin;
+    background: rgba(255,255,255,1);
+    border-radius: 50%;
+    z-index: 5;
+}
+.handscontainer
+{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(1.5 * 27.75vmin);
+    height: calc(1.5 * 27.75vmin);
+    border-radius: 50%;
+    border: 0.25vmin solid green;
+}
+.hand
+{
+    position: absolute;
+    background: rgba(255,255,255,1);
+    transform-origin: bottom;
+    z-index: 4;
+}
+.hr
+{
+    width: 0.8vmin;
+    height: 40%;
+    transform: translateY(-50%);
+}
+.mn
+{
+    width: 0.8vmin;
+    height: 55%;
+    transform: translateY(-50%);
+}
+.sc
+{
+    width: 0.2vmin;
+    height: 45%;
+    transform: translateY(-50%);
+    background: rgba(255,0,0,1);
+    z-index: 4.5;
+}
