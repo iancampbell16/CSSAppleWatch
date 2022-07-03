@@ -12,6 +12,12 @@
             <div class="glarebound">
                 <div class="black"></div>
                 <div class="screencontent hover"></div>
+                <div class="collagecontainer hover">
+                    <div class="collageitem" id="ci1"></div>
+                    <div class="collageitem" id="ci2"></div>
+                    <div class="collageitem" id="ci3"></div>
+                    <div class="collageitem" id="ci4"></div>
+                </div>
                 <div class="clockcontainer hover">
                     <div class="clock">
                         <div class="handscontainer">
@@ -74,12 +80,25 @@
 
     // adding event listener to change image when clicked
     dropzone.addEventListener('click', event => {
-        if (imgsrclist.length != 0) {
+        if (imgsrclist.length == 0) {
+        } else if (imgsrclist.length < 4) {
             const screencontent = document.querySelector('.screencontent');
             screencontent.style.background = `url("${imgsrclist[imgindex]}")`;
             screencontent.style.backgroundSize = `cover`;
             screencontent.style.backgroundPosition =  `center center`;
             imgindex = (imgindex + 1) % imgsrclist.length;
+        } else {
+            const ci1 = document.querySelector('#ci1');
+            const ci2 = document.querySelector('#ci2');
+            const ci3 = document.querySelector('#ci3');
+            const ci4 = document.querySelector('#ci4');
+            const cis = [ci1, ci2, ci3, ci4]
+            const randomselect = imgsrclist.sort(() => 0.5 - Math.random()).slice(0, 5);
+            for (let i = 0; i < 4; i++) {
+                cis[i].style.background = `url("${randomselect[i]}")`;
+                cis[i].style.backgroundSize = `cover`;
+                cis[i].style.backgroundPosition =  `center center`;
+            }
         }
     });
 
